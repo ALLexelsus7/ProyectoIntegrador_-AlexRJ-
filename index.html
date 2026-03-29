@@ -1,0 +1,472 @@
+<!-- 
+    Tutorial: https://www.youtube.com/watch?v=lCCN_lkl3Xw 
+    Recursos: Thiings.co, Google Fonts, SwiperJs, Pexels, Pixabay, Moewalls.com y Nano Bannana (Gemini).
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Alex Ruiz Jordan 24110097">
+    <meta name="descripcion" content="Producto Integrador 3er Parcial DW-1">
+    <title> El mejor E-Comerce de la historia </title>
+
+    <!-- Mi Css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Logos de google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+    <!-- SwiperJs -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+</head>
+<body>
+    <header>
+        <!-- LOGO -->
+        <a href="#" class="logo"> <img src="src/logo.png" alt="logo"> Abyssal Catch Co. </a>
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#products">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#review">Review</a>
+            <a href="#blogs">Blogs</a>           
+        </nav>
+        <!-- ICONOS -->
+        <div class="icons">
+            <div id="burger_btn"><span class="material-symbols-outlined">menu</span></div>
+            <div id="search_btn"><span class="material-symbols-outlined">search</span></div>
+            <div id="cart_btn"><span class="material-symbols-outlined">shopping_cart</span></div>
+            <div id="login_btn"><span class="material-symbols-outlined">login</span></div>
+        </div>
+        <!-- SEARCH DESPLEGABLE -->
+        <form action="" class="search_form">
+            <input type="search" id="search_box" placeholder="Search here...">
+            <label for="search_box" class="label_search"><span class="material-symbols-outlined">search</span></label>
+        </form>
+        <!-- CART DESPLEGABLE -->
+        <div class="shopping_cart">
+            <div class="shopping_box">
+                <span class="material-symbols-outlined trash">delete</span>
+                <img src="src/fish1.png" alt="fish1">
+                <div class="content">
+                    <h3>Fish 1</h3>
+                    <span class="price">$15.99 /</span>
+                    <span class="quantity"> Quantity: 1 </span>
+                </div>  
+            </div>
+            <div class="shopping_box">
+                <span class="material-symbols-outlined trash">delete</span>
+                <img src="src/fish2.png" alt="fish2">
+                <div class="content">
+                    <h3>Fish 2</h3>
+                    <span class="price">$12.99 /</span>
+                    <span class="quantity"> Quantity: 1 </span>
+                </div>  
+            </div>
+            <div class="shopping_box">
+                <span class="material-symbols-outlined trash">delete</span>
+                <img src="src/fish3.png" alt="fish3">
+                <div class="content">
+                    <h3>Fish 3</h3>
+                    <span class="price">$9.99 /</span>
+                    <span class="quantity"> Quantity: 1 </span>
+                </div>  
+            </div>
+            <div class="total">
+                Total: $38.97
+            </div>
+            <a href="#" class="check_out_btn">Checkout</a>
+        </div>
+        <!-- LOGIN DESPLEGABLE -->
+        <form action="" class="login_form" novalidate>
+            <h3>Login now</h3>
+            <input type="email" placeholder="put your email..." class="box" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+            <input type="password" placeholder="put your password..." class="box" required minlength="8" maxlength="15">
+            <p>forget your passowrd? <a href="#">click here</a></p>
+            <p>don't have an account? <a href="#">create now</a></p>
+            <input type="submit" value="login now" class="submit_login_btn">
+        </form>
+        <!-- MUSICA -->
+        <div class="music_container">
+            <img src="src/music.png" alt="speaker" onclick="toggle_music()" id="music_control"> 
+            <audio id="bgm" src="src/pirate-jolly-roger-357922.mp3" preload="auto"></audio>      
+            <div>
+                Music by <a href="https://pixabay.com/es/users/ebunny-22480773/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=357922">Bugs Bunny</a> 
+                <br>from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=357922">Pixabay</a>
+            </div>              
+        </div>
+    </header>
+    
+    <main>
+        <video src="src/shipwreck-moewalls-com.mp4" autoplay muted loop playsinline></video>
+        <!-- HOME -->
+        <section class="home" id="home"> <!-- con el id 'home' lo vinculo al <a href="#home"> de navbar -->
+            <article class="content">
+                <video src="src/the-deep-ocean-moewalls-com.mp4" autoplay muted loop playsinline></video>
+                <h3>Explore the <span>deep</span> sea</h3>
+                <p>
+                    Discover the mysteries of the abyss with our exclusive collection of deep-sea creatures. 
+                    From bioluminescent wonders to ancient giants, dive into a world like no other.
+                </p>
+                <a href="#" class="shopNow_btn">Shop Now</a>
+            </article>
+        </section>
+        <!-- FEATURES -->
+        <section class="features" id="features">
+            <h1 class="heading"> Our <span>features</span> </h1>
+            <div class="box_container"> 
+                <div class="box">
+                    <img src="/src/features1.png" alt="species">
+                    <h3>fresh and unique</h3>
+                    <p> We have unique fish and crabs spieces, found and carefully prepared only for your special necesities! </p>
+                    <a href="#">read more </a>
+                </div>
+                <div class="box">
+                    <img src="/src/features2.png" alt="delivery">
+                    <h3>free delivery</h3>
+                    <p>with the purache of at least 3 mysterious fishes, your delivery will be completly free at any time! </p>
+                    <a href="#">read more </a>
+                </div>
+                <div class="box">
+                    <img src="/src/features3.png" alt="trade">
+                    <h3>easy payments</h3>
+                    <p>we accept any type of exchange, even if you want to trade with other fishes or valuable objects! </p>
+                    <a href="#">read more </a>
+                </div>
+            </div>
+        </section>
+        <!-- PRODUCTS -->
+        <section class="products" id="products">
+            <h1 class="heading"> Our <span>products</span></h1>
+            <div class="swiper product_slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide box">
+                        <img src="src/fish1.png" alt="fish1">
+                        <h3>Fresh Grey Lantern</h3>
+                        <div class="price"> $4.99/- - 10.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish2.png" alt="fish2">
+                        <h3>Fresh Grey Shark</h3>
+                        <div class="price"> $9.99/- - 15.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>                       
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish3.png" alt="fish3">
+                        <h3>Fresh Lion Monk</h3>
+                        <div class="price"> $11.99/- - 16.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish4.png" alt="fish4">
+                        <h3>Fresh Orange Gluppy</h3>
+                        <div class="price"> $2.99/- - 5.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper product_slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide box">
+                        <img src="src/fish5.png" alt="fish5">
+                        <h3>Fresh Gargola Angile</h3>
+                        <div class="price"> $12.99/- - 17.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish6.png" alt="fish6">
+                        <h3>Fresh Fluffy Doofy</h3>
+                        <div class="price"> $9.99/- - 13.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>                       
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish7.png" alt="fish7">
+                        <h3>Fresh Phantom Cat</h3>
+                        <div class="price"> $13.99/- - 14.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish8.png" alt="fish8">
+                        <h3>Fresh Oriental Rave</h3>
+                        <div class="price"> $5.99/- - 8.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper product_slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide box">
+                        <img src="src/fish9.png" alt="fish9">
+                        <h3>Fresh Horse Leaf</h3>
+                        <div class="price"> $12.99/- - 13.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish10.png" alt="fish10">
+                        <h3>Fresh Brown Savage</h3>
+                        <div class="price"> $11.99/- - 16.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>                       
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish11.png" alt="fish11">
+                        <h3>Fresh Amazon Piranha</h3>
+                        <div class="price"> $10.99/- - 14.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/fish12.png" alt="fish12">
+                        <h3>Fresh BlobFish</h3>
+                        <div class="price"> $17.99/- - 19.99/-</div>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <a href="#" class="add_cart">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CATEGORIES -->
+        <section class="categories" id="categories">
+            <h1 class="heading"> product <span>categories</span></h1>
+            <div class="box_container">
+                <div class="box">
+                    <img src="src/categ1.png" alt="cat1">
+                    <h3>The Coastal Fog Dwellers</h3>
+                    <p>"Common" fishes up to 45% off</p>
+                    <a href="#" class="categories_btn">shop now</a>
+                </div>
+                <div class="box">
+                    <img src="src/categ2.png" alt="cat2">
+                    <h3>The Twisted Aberrations</h3>
+                    <p>extravagant fishes up to 25% off</p>
+                    <a href="#" class="categories_btn">shop now</a>
+                </div>
+                <div class="box">
+                    <img src="src/categ3.png" alt="cat3">
+                    <h3>The Lightless Abyss</h3>
+                    <p>mysterious fishes up to 15% off</p>
+                    <a href="#" class="categories_btn">shop now</a>
+                </div>
+                <div class="box">
+                    <img src="src/categ4.png" alt="cat4">
+                    <h3>Spawn of Hostile Zones</h3>
+                    <p>Warning, this is only for experts... </p>
+                    <a href="#" class="categories_btn">shop now</a>
+                </div>
+            </div>
+        </section>
+        <!-- REVIEW -->
+        <section class="review" id="review">
+            <h1 class="heading"> customer's <span>review</span></h1>
+            <div class="swiper review_slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide box">
+                        <img src="src/user1.png" alt="user1">
+                        <p>OMG,<br> the best fishes I've ever bought!</p>
+                        <h3>Derek Vincent</h3>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/user2.png" alt="user2">
+                        <p>I never thought buying deep-sea creatures could be this easy and fun!</p>
+                        <h3>Peggy Monty</h3>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/user3.png" alt="user3">
+                        <p>The variety of species is incredible, and the quality is top-notch!</p>
+                        <h3>Garfal Froix</h3>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide box">
+                        <img src="src/user4.png" alt="user4">
+                        <p>This is disgustin...<br>Yikes</p>
+                        <h3>Alandor Red</h3>
+                        <div class="stars">
+                            <span class="material-symbols-outlined">star_half</span>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </section>
+        <!-- BLOGS -->
+        <section class="blogs" id="blogs">
+            <h1 class="heading"> our <span>blogs</span></h1>
+            <div class="box_container">
+                <div class="box">                 
+                    <img src="src/blog1.png" alt="blog1">                  
+                    <div class="content">
+                        <div class="icons">
+                            <a href="#"><span class="material-symbols-outlined">emoji_people</span>&nbsp; by user</a>
+                            <a href="#"><span class="material-symbols-outlined">date_range</span>&nbsp; 1st August, 2025</a>
+                        </div>
+                        <h3>The Enigmatic World of Deep-Sea Creatures</h3>
+                        <p>Dive into the fascinating realm of deep-sea creatures, exploring their unique adaptations and the mysteries they hold.</p>
+                        <a href="#" class="read_more_btn">read more</a>                   
+                    </div>
+                </div>
+                <div class="box">                   
+                    <img src="src/blog2.png" alt="blog2">  
+                    <div class="content">
+                        <div class="icons">
+                            <a href="#"><span class="material-symbols-outlined">emoji_people</span>&nbsp; by user</a>
+                            <a href="#"><span class="material-symbols-outlined">date_range</span>&nbsp; 1st May, 2024</a>
+                        </div>                                   
+                        <h3>Sustainable Practices in Deep-Sea Fishing</h3>
+                        <p>Learn about the importance of sustainable fishing practices to protect deep-sea ecosystems and ensure the longevity of marine life.</p>
+                        <a href="#" class="read_more_btn">read more</a>
+                    </div>
+                </div>
+                <div class="box">                   
+                    <img src="src/blog3.png" alt="blog3">              
+                    <div class="content">
+                        <div class="icons">
+                            <a href="#"><span class="material-symbols-outlined">emoji_people</span>&nbsp; by user</a>
+                            <a href="#"><span class="material-symbols-outlined">date_range</span>&nbsp; 1st October, 2023</a>
+                        </div>   
+                        <h3>Top 10 Deep-Sea Species You Didn't Know Existed</h3>
+                        <p>Discover ten incredible deep-sea species that are rarely seen but play vital roles in their ecosystems.</p>
+                        <a href="#" class="read_more_btn">read more</a>
+                    </div>
+                </div>
+            </div>
+        </section>                  
+    </main>
+    <footer>
+        <div class="box_container">
+            <div class="box">
+                <h3> Abyssal Catch Co. <span class="material-symbols-outlined">phishing</span> </h3>
+                <p> Esta empresa se basa en la historia original del muy valioso videojuego Indie llamado "DREDGE". </p>
+                <div class="share">
+                    <a href="#"><span class="material-symbols-outlined">share</span></a>
+                    <a href="#"><span class="material-symbols-outlined">youtube_activity</span></a>
+                    <a href="#"><span class="material-symbols-outlined">communities</span></a>
+                    <a href="#"><span class="material-symbols-outlined">book</span></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3> Contact info.</h3>            
+                <a href="#"><span class="material-symbols-outlined">mail</span>&nbsp;a24110097@ceti.mx</a>                
+                <a href="#"><span class="material-symbols-outlined">phone_enabled</span>&nbsp;33-21-87-80-55</a>                
+                <a href="#"><span class="material-symbols-outlined">file_map</span>&nbsp;Mexico, Jalisco.</a>                
+            </div>
+            <div class="box">
+                <h3> quick links</h3>              
+                <a href="#"><span class="material-symbols-outlined">arrow_right</span>&nbsp;home</a>                
+                <a href="#"><span class="material-symbols-outlined">arrow_right</span>&nbsp;features</a>                
+                <a href="#"><span class="material-symbols-outlined">arrow_right</span>&nbsp;products</a>  
+                <a href="#"><span class="material-symbols-outlined">arrow_right</span>&nbsp;categories</a>                
+                <a href="#"><span class="material-symbols-outlined">arrow_right</span>&nbsp;review</a>                
+                <a href="#"><span class="material-symbols-outlined">arrow_right</span>&nbsp;blogs</a>               
+            </div>
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="enter your email" class="email_input">
+                <input type="submit" value="subscribe" class="subscribe_btn">
+            </div>
+        </div>
+        <div class="credit"> 
+            created by <span> &nbsp;Alex Ruiz Jordan</span>, from Desarrollo Web I in Ing. en Desarrollo de Software, CETI. &nbsp;
+            <span class="material-symbols-outlined">copyright</span> &nbsp; 2025 Almost all rights reserved!
+        </div>
+    </footer>
+
+    <!-- Script de SwiperJs -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- Mi Js (en esta posicion para que se carguen todos los elementos en el DOM)-->
+    <script src="script.js"></script> 
+</body>
+</html>

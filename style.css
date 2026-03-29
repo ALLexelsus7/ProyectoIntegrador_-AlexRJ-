@@ -1,0 +1,890 @@
+/* Monserat & Raleway from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Defino y personalizo colores y estilos */
+:root{
+    --NieblaCostera: #A8B3B8;
+    --MarProfundo:#1C3B4A;
+    --MaderaHumeda:#594B3B;
+    --LuzDeLinterna:#F7E59E;
+    --TerrorSubmarino:#5F2936;
+    --CoralElectrico: #00D2E1;
+    --OjoAberracion: #FFC800;
+    --MagmaDiablillo:#E84A27;
+    --FosforescenciaAbisal: #8A4FFF;
+    --MangleToxico: #7DBE2E;
+    --Transparente: rgba(0, 0, 0, 0.717);
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+    --border:.2rem solid rgba(0,0,0,.1);
+    --outline:.1rem solid rgba(0,0,0,.1);
+    --outline-hover:.2rem solid rgba(255, 255, 255, 0.247); /*Asi llamo a una variable*/
+    --text-shadow:0 .5rem 1rem rgba(0,0,0,.5);
+    --drop-shadow1: drop-shadow(0px 0px 10% #FCF8EC);
+    --drop-shadow2: drop-shadow(0px 0px 5px #FAF0D0);
+    --drop-shadow3: drop-shadow(0px 0px 10px #F7E59E);
+    --drop-shadow4: drop-shadow(0px 0px 10px #E8D58D);
+    --drop-shadow5: drop-shadow(0px 0px 10px #D3C37D);
+}
+
+*{
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    scroll-behavior: smooth; /* Scroll suave */
+    scroll-padding-top: calc(15rem + 2vh); /* Espacio para el header fijo, sirve para no tapar contenido con el header al navegar con el navbar */
+}
+
+body{
+    background: var(--MarProfundo);
+}
+
+/******************* HEADER *******************/
+header{
+    position: fixed; /*mantiene el elemento siempre en pantalla*/
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    background: var(--Transparente);
+    box-shadow: var(--box-shadow);
+}
+header .logo{ /*redundo al poner header solo para aclarar visualmente de donde viene .logo e igual en los siguientes... */
+    color: var(--LuzDeLinterna);
+    font-size: 3rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10rem;
+}
+header .logo img{
+    width: 150px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+header .navbar a{
+    font-size: 1.7rem;
+    margin: 0 1rem;
+    color: var(--MaderaHumeda);
+}
+header .navbar a:hover{
+    color: var(--LuzDeLinterna);
+}
+header .icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+header .icons div{   
+    cursor: pointer;  
+    height: 100%;
+    width: 4.5rem;
+    line-height: 100%;
+    border-radius: .5rem;
+    background: var(--TerrorSubmarino);
+    margin-right: .3rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    color: var(--LuzDeLinterna);
+}
+header .icons div:hover{
+    background: var(--LuzDeLinterna);
+    color: var(--TerrorSubmarino);
+}
+header .icons #burger_btn{
+    display: none; /* oculto el menu burger (solo saldra en modo movil) */
+}
+header .search_form{
+    position: absolute;
+    top: 110%; right: -110%; /*el right lo pongo como 2rem para verlo al editarlo, pero luego lo escondo fuera de pantalla poniendo -110% (a la izq.)*/
+    width: 50rem;
+    height: 4rem;
+    background: var(--TerrorSubmarino);
+    border-radius: .5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+header .search_form.active{
+    right: 2rem; /*cuando se active la clase active, el formulario se movera a la derecha para verse*/
+    transition: .4s linear;
+}
+header .search_form input{
+    height: 100%;
+    width: 100%;
+    padding: 0 1.5rem;
+    font-size: 1.6rem;
+    color: var(--LuzDeLinterna);
+    border: none;
+    background: transparent;
+    text-transform: none;
+    color: var(--LuzDeLinterna);
+    padding: 0 1.5rem;
+}
+header .search_form input::placeholder{
+    color: var(--NieblaCostera);
+}
+header .search_form input:focus{
+    outline: var(--outline-hover);
+}
+header .search_form label{
+    height: 100%;
+    width: 4rem;
+    background: var(--NieblaCostera);
+    cursor: pointer;
+    display: flex;   
+    align-items: center;
+    justify-content: center; 
+    color: var(--TerrorSubmarino);
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+header .search_form label:hover{
+    background: var(--LuzDeLinterna);
+    color: var(--MaderaHumeda);
+}
+header .shopping_cart{
+    position: absolute;
+    top: 110%; right: -110%;
+    background: var(--TerrorSubmarino);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 30rem;
+    color: var(--LuzDeLinterna);
+}
+header .shopping_cart.active{
+    right: 2rem;
+    transition: .4s linear;
+}
+header .shopping_cart .shopping_box{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 1rem;
+    position: relative;
+}
+header .shopping_cart .shopping_box img{
+    height: 10rem;
+}   
+header .shopping_cart .shopping_box img:hover{
+    transform: scale(1.1);
+    transition: 1s smooth;
+}   
+header .shopping_cart .shopping_box .trash{
+    font-size: 2rem;
+    position: absolute;
+    top: 50%; right: 2rem;
+    color: var(--NieblaCostera);
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+header .shopping_cart .shopping_box .trash:hover{
+    color: var(--LuzDeLinterna);
+}
+header .shopping_cart .shopping_box .content h3{
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+}
+header .shopping_cart .shopping_box .content span{
+    font-size: 1.3rem;
+    color: var(--NieblaCostera);
+}
+header .shopping_cart .shopping_box .content .quantity{
+    display: block;
+    margin-top: .5rem;
+}
+header .shopping_cart .total{
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1rem 0;
+}
+header .shopping_cart .check_out_btn{
+    display: block;
+    text-align: center;
+    background: var(--LuzDeLinterna);
+    color: var(--MaderaHumeda);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    margin-top: 1rem;
+}
+header .shopping_cart .check_out_btn:hover{
+    background: rgb(137, 188, 61);
+    color: var(--LuzDeLinterna);    
+}
+header .login_form{
+    position: absolute;
+    top: 110%; right: -110%;
+    background: var(--TerrorSubmarino);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: .5rem;
+    width: 30rem;
+    color: var(--LuzDeLinterna);
+    text-align: center;
+}
+header .login_form.active{
+    right: 2rem;
+    transition: .4s linear;
+}
+header .login_form h3{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+header .login_form .box{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--LuzDeLinterna);
+    background: transparent;
+    border: var(--outline);
+    margin: .7rem 0;
+    border-radius: .5rem;
+    text-transform: none;
+}
+header .login_form p{
+    font-size: 1.4rem;
+    color: var(--NieblaCostera);
+    margin-top: .5rem;
+    padding: .5rem 0;
+}
+header .login_form p a{
+    color: var(--LuzDeLinterna);
+    text-decoration: underline;
+}
+header .login_form p a:hover{
+    color: greenyellow;
+    text-decoration: underline greenyellow;
+}
+header .login_form .box::placeholder{
+    color: var(--NieblaCostera);
+}
+header .login_form .box:focus{
+    outline: var(--outline-hover);
+}
+header .login_form .submit_login_btn{
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    color: var(--MaderaHumeda);
+    background: var(--LuzDeLinterna);
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+}
+header .login_form .submit_login_btn:hover{
+    background: rgb(137, 188, 61);
+    color: var(--LuzDeLinterna);    
+}
+header .music_container{
+    display: grid; /* uso grid para centrar imagen y texto */
+    grid-template-columns: auto; /* una columna */
+    grid-template-rows: auto auto; /* dos filas: una para la imagen y otra para el texto */
+    place-items: center; /* centra en eje X e Y; imagen arriba, texto abajo */
+    gap: 1rem; /* espacio entre la imagen y el texto */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--LuzDeLinterna);
+    margin-right: -10rem;
+    text-align: center;
+}
+header .music_container a{
+    color: var(--MaderaHumeda);
+}
+header .music_container img{
+    width: 70px;
+    cursor: pointer; 
+    display: block; 
+    animation: colors-border 3s linear infinite;
+}
+@keyframes colors-border{ /* animacion para el brillo del altavoz desde 0 a 100% */
+    0%   { filter: var(--drop-shadow1); }
+    25%  { filter: var(--drop-shadow2); }
+    50%  { filter: var(--drop-shadow3); }
+    75%  { filter: var(--drop-shadow4); }
+    100% { filter: var(--drop-shadow5); }
+}
+
+/******************* HOME *******************/
+section{
+    padding: 2rem 9%;
+}
+main video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2; /* para que el video quede detras del contenido */
+}
+main .content video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* para que el video quede detras del contenido */
+}
+main .home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background: url(src/submarine-6487509.svg) no-repeat top center/cover; /* imagen de fondo centrada y que cubre todo el contenedor */
+    /*padding-top: 17rem; /* para que no quede oculto el contenido detras del header fijo */
+    /*padding-bottom: 25rem;*/
+    height: 100vh;
+}
+main .home .content{
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+    width: 60rem;
+}
+main .home .content h3{
+    font-size: 10rem;
+    margin-bottom: 5rem;
+    color: var(--CoralElectrico);
+    text-shadow: var(--text-shadow);
+}
+main .home .content h3 span{
+    color: var(--MagmaDiablillo);
+    animation: text-glow 10s linear infinite;
+}
+@keyframes text-glow{
+    0%   { color: var(--MagmaDiablillo); }
+    33%  { color: var(--FosforescenciaAbisal); }
+    66%  { color: var(--MangleToxico); }
+    100% { color: var(--OjoAberracion); }
+}
+main .home .content p{
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    line-height: 1.5;
+}
+main .home .content .shopNow_btn{
+    display: inline-block;
+    background: var(--TerrorSubmarino);
+    color: var(--LuzDeLinterna);
+    padding: 1.5rem 3rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+main .home .content .shopNow_btn:hover{
+    background: var(--MarProfundo);
+    color: var(--LuzDeLinterna);    
+}
+/******************* FEATURES *******************/
+main .features{
+    margin: 2rem 0;
+}
+.heading{
+    text-align: center;
+    font-size: 3.5rem;
+    color: var(--LuzDeLinterna);
+    text-shadow: var(--text-shadow);
+    padding: 2rem 0; /* el padding arriba y abajo es 2rem, y a los lados 0 */
+    padding-bottom: 3rem;
+}
+.heading span{
+    color: var(--CoralElectrico);
+    background: var(--FosforescenciaAbisal);
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0%, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+.features .box_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+main .features .box_container .box{
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    color: var(--LuzDeLinterna);
+    outline: var(--outline);
+    outline-offset: -1rem;
+    background: url('/src/ice.jpg') no-repeat center/cover;
+    color: white;
+    font-size: 1.5rem;
+}
+main .features .box_container .box:hover{
+    outline: var(--outline-hover);
+}
+main .features .box_container .box h3{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+main .features .box_container .box p{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+}
+main .features .box_container .box img{
+    height: 20rem;
+    margin-bottom: 1rem 0;   
+    border-radius: 3rem;
+}
+main .features .box_container .box a{
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--MarProfundo);
+    color: var(--OjoAberracion);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+main .features .box_container .box a:hover{
+    background: var(--OjoAberracion);
+    color: var(--MarProfundo);    
+}
+/******************* PRODUCTS *******************/
+main .product_slider{
+    padding: 1rem; 
+}
+main .product_slider:first-child{ /*first-child selecciona al primer bloque de .products_slider*/
+    margin-bottom: 2rem;
+}
+main .products .product_slider .box{
+    background: var(--MaderaHumeda);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    padding: 3rem 2rem;
+    outline-offset: -1rem;
+    outline: var(--outline);
+    box-shadow: var(--box-shadow);
+    color: var(--LuzDeLinterna);
+    transition: .2s linear;
+    margin-left: 1rem;
+}
+main .products .product_slider .box:hover{
+    outline: var(--outline-hover);
+}
+main .products .product_slider .box img{
+    height: 30rem;
+    margin-bottom: 1rem 0;   
+}
+main .products .product_slider .box h3{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--NieblaCostera);
+}
+main .products .product_slider .box .price{
+    font-size: 2rem;
+    color: var(--MangleToxico);
+    margin-bottom: 1rem;
+    padding: .5rem 0;
+}
+main .products .product_slider .box .stars{
+    color: var(--OjoAberracion);
+    font-size: 1.8rem;
+    padding: .5rem 0;
+}
+main .add_cart{
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--CoralElectrico);
+    color: var(--FosforescenciaAbisal);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+main .add_cart:hover{
+    background: var(--FosforescenciaAbisal);
+    color: var(--CoralElectrico);    
+}
+/******************* CATEGORIES *******************/
+main .categories .box_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 1rem;
+}
+main .categories .box_container .box{
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    color: var(--LuzDeLinterna);
+    outline: var(--outline);
+    outline-offset: -1rem;
+    background: url('/src/map.jpg') no-repeat center/cover;
+    color: white;
+    text-shadow: var(--text-shadow);
+    font-size: 1.5rem;
+}
+main .categories .box_container .box:hover{
+    outline: var(--outline-hover);
+}
+main .categories .box_container .box img{
+    height: auto;
+    width: 90%;
+    margin-bottom: 4rem;   
+    border-radius: 3rem;
+    
+}
+main .categories .box_container .box h3{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.8rem;
+}
+main .categories .box_container .box p{
+    font-size: 1.8rem;
+    line-height: 1.5;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+}
+main .categories .box_container .box a{
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--MagmaDiablillo);
+    color: var(--OjoAberracion);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+main .categories .box_container .box a:hover{
+    background: var(--OjoAberracion);
+    color: var(--MagmaDiablillo);    
+}
+/******************* REVIEW *******************/
+main .review .review_slider{
+    padding: 1rem; 
+}
+main .review .review_slider .box{
+    background: var(--MaderaHumeda);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    padding: 3rem 2rem;
+    outline-offset: -1rem;
+    outline: var(--outline);
+    box-shadow: var(--box-shadow);
+    color: var(--LuzDeLinterna);
+    transition: .2s linear;
+    margin-left: 1rem;
+}
+main .review .review_slider .box:hover{
+    outline: var(--outline-hover);
+    outline-offset: 0rem;
+}
+main .review .review_slider .box img{
+    height: 20rem;
+    border-radius: 40%;
+    margin-bottom: 1rem;   
+}
+main .review .review_slider .box h3{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--NieblaCostera);
+}
+main .review .review_slider .box p{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    padding: 0 2rem;
+    margin-bottom: .2rem;
+}   
+/******************* BLOGS *******************/
+main .blogs .box_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--NieblaCostera);
+}
+main .blogs .box_container .box{
+    overflow: hidden;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    background: var(--MarProfundo);
+    color: var(--LuzDeLinterna);
+}
+
+main .blogs .box_container .box img{
+    width: 100%;
+    height: auto;
+    object-fit:cover;
+}
+main .blogs .box_container .box .content{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+main .blogs .box_container .box .content .icons{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: var(--border);
+    color: var(--NieblaCostera);
+    font-size: 1.5rem;
+}
+main .blogs .box_container .box .content .icons a{
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+    color: var(--CoralElectrico);
+    padding: 1rem 2rem;
+    border-radius: .2rem;
+    font-size: 1.5rem;  
+    cursor: pointer;
+}
+main .blogs .box_container .box .content .icons span{
+    color: var(--MangleToxico);
+}
+main .blogs .box_container .box .content h3{
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+main .blogs .box_container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+main .blogs .box_container .box .content .read_more_btn{
+    display: inline-block;
+    width: fit-content;
+    margin-top: 1rem;
+    background: var(--CoralElectrico);
+    color: var(--FosforescenciaAbisal);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+main .blogs .box_container .box .content .read_more_btn:hover{
+    background: var(--FosforescenciaAbisal);
+    color: var(--CoralElectrico);    
+}
+/******************* FOOTER *******************/
+footer{
+    background: var(--Transparente);
+    box-shadow: var(--box-shadow);  
+}
+footer .box_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+footer .box_container .box h3{
+    font-size: 2.5rem;
+    color: var(--LuzDeLinterna);
+    margin-bottom: 1.5rem;
+}
+footer .box_container .box a, footer .box_container .box p{
+    display: block;
+    font-size: 1.6rem;
+    color: var(--NieblaCostera);
+    margin: 1rem 0;
+}
+footer .box_container .box a:hover, footer .box_container .box .share a:hover{
+    color: var(--LuzDeLinterna);
+    padding-left: .5rem;
+}
+footer .box_container .box p{
+    line-height: 1.5;
+}
+footer .box_container .box span{
+    font-size: 1.8rem;
+    color: var(--MagmaDiablillo);
+}
+footer .box_container .box .share a{
+    display: inline-block;
+    text-align: center;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    border-radius: .5rem;
+    margin-right: .2rem;
+    background: var(--MaderaHumeda);
+}
+footer .box_container .box .share span{
+    border-top: var(--border);
+    font-size: 3.5rem;
+    color: var(--MangleToxico);
+}
+footer .box_container .box .email_input{
+    width: 60%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--LuzDeLinterna);
+    background: var(--MarProfundo);
+    border: var(--outline);
+    border-radius: .5rem;
+    margin-top: 1rem;
+    text-transform: none;
+}
+footer .box_container .box .email_input::placeholder{
+    color: var(--NieblaCostera);
+}
+footer .box_container .box .email_input:focus{
+    outline: var(--outline-hover);
+}
+footer .box_container .box .subscribe_btn{
+    width: 60%;
+    padding: 1rem;
+    font-size: 2rem;
+    color: var(--MaderaHumeda);
+    background: var(--LuzDeLinterna);
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+}
+footer .box_container .box .subscribe_btn:hover{
+    background: rgb(137, 188, 61);
+    color: var(--LuzDeLinterna);    
+}
+footer .credit{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+    color: var(--NieblaCostera);
+}
+footer .credit span{
+    color: var(--LuzDeLinterna);
+    font-weight: bold;
+}
+
+/******************* MEDIA QUERIES *******************/
+/*cambia valores de elementos si se cumple una condicion*/
+@media (max-width:1070px){
+    header .music_container{
+        margin-right: -8rem;
+        margin-left: 5rem;
+    }
+    main .home{
+        padding-top: 20rem;
+        padding-bottom: 10rem; 
+    }
+}
+@media (max-width:991px) { 
+    html{
+    font-size: 55%;
+    }
+    header{
+        padding: 2rem;
+    } 
+    section{
+        padding: 2rem;
+    }
+    header .logo{
+        margin-left: 0;
+        font-size: 2rem;
+    }
+    header .logo img{
+        width: 120px;
+    }
+    header .music_container{
+        margin-left: 3rem;
+        margin-right: 0;
+    }
+    header .navbar{
+        margin-left: 3rem;
+    }
+    main .home{
+        padding-top: 20rem;
+        padding-bottom: 10rem; 
+    }
+}
+@media (max-width:768px) { 
+
+    header .icons #burger_btn{ /*Aparece el menu burger con home, features, products, etc...*/
+        display: inline-block;
+    }
+    header .navbar a{
+        color: var(--LuzDeLinterna);
+    }
+    header .search_form{
+        width: 90%;
+    }
+    header .navbar{
+        position: absolute;
+        top: 110%; right: -110%;
+        width: 30rem;
+        box-shadow: var(--box-shadow);
+        border-radius: .5rem;
+        background: var(--MaderaHumeda);
+    }
+    header .navbar.active{
+        right: 2rem;
+        transition: .4s linear;
+    }
+    header .navbar a{
+        display: block;
+        margin: 2rem 2.5rem;
+        font-size: 2rem;
+        border-bottom: var(--border);
+        padding-bottom: 1rem;
+    }
+    header .logo{
+        font-size: 2rem;
+        margin-right: 2rem;
+    }
+    header .logo img{
+        width: 10rem;
+    }
+    header .music_container {
+        font-size: .5rem;
+    }
+}
+@media (max-width:530px){
+    header .music_container{
+        display: none;
+    }
+}
+@media (max-width:450px) { 
+    html{
+        font-size: 50%;
+    }
+    header .music_container{
+        display: none;
+    }
+    header .logo{
+        margin-right: 2rem;
+        font-size: 1.5rem;
+    }
+    main .features .heading{       
+        font-size: 2.5rem;      
+    }
+    footer{
+        text-align: center;
+    }
+}

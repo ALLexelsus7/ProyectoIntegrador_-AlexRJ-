@@ -61,6 +61,7 @@ window.onscroll = () =>{
 
     // Cambia el fondo del header segun la seccion
     let header = document.querySelector('header');
+    let homeSection = document.querySelector('#home');
     let featuresSection = document.querySelector('#features');
     let productsSection = document.querySelector('#products');  
     let categoriesSection = document.querySelector('#categories');
@@ -87,10 +88,13 @@ window.onscroll = () =>{
     else if(window.scrollY >= featuresSection.offsetTop - 170){
         header.style.background = 'var(--MarProfundo)'; 
     }
-   
+    // Estando en Home
+    else if(window.scrollY >= homeSection.offsetTop - 170){
+        header.className = 'tarjeta-cristal';
+    }  
     // Por defecto
     else {
-        header.style.background = 'var(--Transparente)';
+        header.className = 'tarjeta-cristal';
     }
 }
 

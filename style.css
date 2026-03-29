@@ -5,7 +5,7 @@
 :root{
     --NieblaCostera: #A8B3B8;
     --MarProfundo:#1C3B4A;
-    --MaderaHumeda:#594B3B;
+    --MaderaHumeda:#937d64;
     --LuzDeLinterna:#F7E59E;
     --TerrorSubmarino:#5F2936;
     --CoralElectrico: #00D2E1;
@@ -13,7 +13,6 @@
     --MagmaDiablillo:#E84A27;
     --FosforescenciaAbisal: #8A4FFF;
     --MangleToxico: #7DBE2E;
-    --Transparente: rgba(0, 0, 0, 0.717);
     --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
     --border:.2rem solid rgba(0,0,0,.1);
     --outline:.1rem solid rgba(0,0,0,.1);
@@ -47,26 +46,52 @@ body{
     background: var(--MarProfundo);
 }
 
+.tarjeta-cristal{
+    /* 1. Translucidez: Fondo negro con un 15% de opacidad */
+    background: rgba(0, 0, 0, 0.15);    
+    /* 2. La magia: Desenfoca lo que está detrás del elemento */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Necesario para que funcione en Safari/Apple */    
+    /* 3. Borde sutil: Un borde blanco muy transparente para simular el filo */
+    border: 1px solid rgba(255, 255, 255, 0.3);    
+    /* 4. Sombra: Sombra suave y amplia para que parezca flotar */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);    
+    /* Extras: Curvas para un diseño más amigable */
+    border-radius: 0 0 16px 16px; 
+    padding: 30px;
+}
+.tarjeta-cristal_2{
+    /* 1. Translucidez: Fondo negro con un 15% de opacidad */
+    background: rgba(0, 0, 0, 0.15);    
+    /* 2. La magia: Desenfoca lo que está detrás del elemento */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Necesario para que funcione en Safari/Apple */    
+    /* 3. Borde sutil: Un borde blanco muy transparente para simular el filo */
+    border: 1px solid rgba(255, 255, 255, 0.3);    
+    /* 4. Sombra: Sombra suave y amplia para que parezca flotar */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);    
+    /* Extras: Curvas para un diseño más amigable */
+    border-radius: 16px 16px 0 0; 
+    padding: 30px;
+}
+
 /******************* HEADER *******************/
 header{
     position: fixed; /*mantiene el elemento siempre en pantalla*/
-    top: 0; left: 0; right: 0;
+    top: 0; left: 1%; right: 1%;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2rem 9%;
-    background: var(--Transparente);
-    box-shadow: var(--box-shadow);
 }
-header .logo{ /*redundo al poner header solo para aclarar visualmente de donde viene .logo e igual en los siguientes... */
+header .logo{ /*repito al poner header solo para aclarar visualmente de donde viene .logo e igual en los siguientes... */
     color: var(--LuzDeLinterna);
     font-size: 3rem;
     font-weight: bolder;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -10rem;
 }
 header .logo img{
     width: 150px;
@@ -303,7 +328,6 @@ header .music_container{
     gap: 1rem; /* espacio entre la imagen y el texto */
     font-family: 'Montserrat', sans-serif;
     color: var(--LuzDeLinterna);
-    margin-right: -10rem;
     text-align: center;
 }
 header .music_container a{
@@ -365,6 +389,7 @@ main .home .content h3{
     margin-bottom: 5rem;
     color: var(--CoralElectrico);
     text-shadow: var(--text-shadow);
+    margin-top: 20%;
 }
 main .home .content h3 span{
     color: var(--MagmaDiablillo);
@@ -690,10 +715,6 @@ main .blogs .box_container .box .content .read_more_btn:hover{
     color: var(--CoralElectrico);    
 }
 /******************* FOOTER *******************/
-footer{
-    background: var(--Transparente);
-    box-shadow: var(--box-shadow);  
-}
 footer .box_container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
